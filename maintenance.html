@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Sito in manutenzione</title>
+
+  	<style type="text/css">
+  	body {
+  	    font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+	    font-size: 14px;
+	    color:#333333;
+  	}
+  	.well, #mission {
+  		width: 600px;
+		min-height: 20px;
+		padding: 19px;
+		margin: 30px auto;
+		background-color: #f5f5f5;
+		border: 1px solid #eee;
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+		text-align: center;
+		position:relative;
+	}
+	.well em{
+		color: #999;
+	}
+	.well a,
+	.well a:link,
+	.well a:visited,
+	.well a:hover,
+	.well a:active {
+	  color: #0066ff;
+	}
+
+	.well img{
+		height: 22px;
+	}
+
+	#game_bezel{
+		width: 570px;
+		margin:30px auto;
+		position: relative;
+	}
+
+	#game_bezel p{text-align:center;}
+
+  	#game_container{
+		top: 20px;
+		position: relative;
+		width: 570px;
+	}
+
+	#invaders-canvas, #background-canvas
+	{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+
+	#background-canvas{
+		background: #222;
+	}
+
+	#hud{
+		font-size: 1.6em;
+		width: 570px;
+		height: 350px;
+		color: #fff;
+		font-weight: bold;
+		position: absolute;
+		top: 6px;
+		left: 6px;
+	}
+
+	#gameover{
+		display: none;
+		margin-top: 150px;
+		width: 570px;
+		text-align: center;
+		font-size: 2.2em;
+	}
+
+	.score,.lives{
+		width: 70%;
+		float: right;
+	}
+
+	.lives{
+		width: 30%;
+	}
+	/* hidden mission */
+	#mission{
+		display: none;
+		font-family: Georgia, Times New Roman, serif, sans-serif;
+		font-size: 16px;
+		color:#333333;
+		font-style:italic;
+		line-height: 1.8em;
+	}
+	#mission a{
+		font-style: normal;
+		color: white;
+		font-family: monospace, sans-serif;
+		letter-spacing:3px;
+		border: 1px solid black;
+		padding: 3px 5px;
+		text-decoration: none;
+		font-weight: bold;
+		background: black;
+		margin: 0 10px;
+		-webkit-box-shadow: 1px 1px 1px #999;
+		-moz-box-shadow: 1px 1px 1px #999;
+		box-shadow: 1px 1px 1px #999;
+	}
+	#mission a:active{
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+	/* hidden form */
+	.well form, .well fieldset{
+		color: transparent;
+		border: 0;
+		margin: 0;
+		padding: 0;
+		background: none;
+	}
+	.well input[type="text"]{
+		position:relative;
+		border:0;
+		background-color: transparent;
+		position:relative;
+		top:-20px;
+		width: 255px;
+		color: #fff;
+		padding: 0px;
+		font-weight: bold;
+		height: 20px;
+		text-align:center;
+		margin:0 auto;
+		text-transform:uppercase;
+		letter-spacing: 5px;
+		font-family: monospace, sans-serif;
+	}
+	.well input[type="text"]:focus{
+		outline: none;
+	}
+	.well input[type="submit"]{
+		position:absolute;
+		top: -99999px;
+		left: -99999px;
+	}
+  	</style>
+	<script src="liquens/javascript/jquery-1.7.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="well">
+		<h1>Sito in manutenzione.</h1>
+		<img src="liquens/images/maintenance-progress.gif" alt="In maintenance"/>
+		<form>
+			<fieldset>
+				<input type="text" id="secret" name="secret" />
+				<input type="submit" id="go"/>
+			</fieldset>
+		</form>
+		<p>Stiamo momentaneamente aggiornando il software... Torneremo online tra poco!</p>
+		<h3>Prova ad <a href="">aggiornare</a> la pagina</h3>
+	</div>
+<div id="mission">
+	<p>Ci spiace dover ricorrere a questi messaggi crittati, ma il nemico &egrave; sempre in ascolto e non possiamo rischiare errori.
+	Se stai leggendo queste righe vuol dire che hai scoperto come contribuire alla difesa della Terra.</p>
+	<p>L'attuale situazione non &egrave; altro che l'ennesimo attacco al mondo delle biblioteche e della
+	cultura. Anche questa volta dovremmo riuscire a respingere le forze oscure in pochi minuti, ma se te la senti puoi entrare nella resistenza e aiutarci a fermarle! <br/>Abbiamo bisogno del tuo aiuto!</p>
+	<p>Se ti senti pronto, abbiamo preparato una nave interstellare pronta a decollare.</p>
+	<a href="">Aspetta</a>
+	<a class="play" href="#">Decolla</a>
+	</div>
+	<div id="game_bezel" style="display:none">
+		<div id="game_container">
+			<canvas id="background-canvas"></canvas>
+			<div id="hud">
+				<span class="lives">Lives</span>
+				<span class="score">Score <span id="player_score"></span></span>
+				<div id="gameover">Game Over</div>
+			</div>
+
+			<canvas id="invaders-canvas"></canvas>
+		</div>
+		<p style="position: relative; top: 372px;">Usa le FRECCE per Muoverti, SPAZIO per Sparare.</p>
+	</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('form:first').submit(function(){
+			if ($("input:first").val().toUpperCase() == "INVADERS") {
+				$("#mission").fadeIn(2000);
+				return false;
+			}
+			
+		});
+		$('.play').on('click',function(){
+			$("#mission").hide();
+                        $('#game_bezel').toggle();
+                        if (!isLoaded){
+                                main();
+                        }
+                });
+	});
+	</script>
+	<script src="liquens/maintenance-game/canvas_invaders.js" type="text/javascript"></script>
+	<script src="liquens/maintenance-game/Renderer.js" type="text/javascript"></script>
+	<script src="liquens/maintenance-game/player.js" type="text/javascript"></script>
+	<script src="liquens/maintenance-game/enemies.js" type="text/javascript"></script>
+	<script src="liquens/maintenance-game/projectile.js" type="text/javascript"></script>
+</body>
+</html>
