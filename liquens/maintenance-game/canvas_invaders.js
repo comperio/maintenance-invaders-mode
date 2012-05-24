@@ -176,8 +176,14 @@ function updateGame(){
 			var player = players[id];
 			
 			if (player._lives < 0){
+				var score= $('#player_score').text();
 				$('#gameover').fadeIn(2000);
 				gameOver = true;
+				$('#game_bezel').fadeOut();
+				$('body').css('background','none');
+				$('body').append('<h3>Grazie capitano per aver difeso la Terra.</h3><p>Hai fatto '+score+' punti.</p>')
+				$('#secret').attr('value', '');
+				$(".well").show();
 				//$('#contact_form #score').attr("value", $('#player_score').text());				
 //				$('#game_bezel').fadeOut();
 //				$('#contact_form').show();
